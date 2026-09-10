@@ -22,7 +22,6 @@ router = APIRouter(
 def upload_document(
     voter_id: int = Form(...),
     document_type: str = Form(...),
-    document_number: str = Form(...),
     file: UploadFile = File(...),
     db: Session = Depends(get_db),
     current_admin: Admin = Depends(get_current_admin)
@@ -32,7 +31,6 @@ def upload_document(
             db=db,
             voter_id=voter_id,
             document_type=document_type,
-            document_number=document_number,
             file=file
         )
 
